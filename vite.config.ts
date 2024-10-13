@@ -9,8 +9,21 @@ export default defineConfig({
       "/api": {
         target: "https://uptime.com",
         changeOrigin: true,
+        secure: false,
         rewrite: (path) => path.replace(/^\/api/, "/api/v1"),
       },
     },
+    cors: false,
+  },
+  preview: {
+    proxy: {
+      "/api": {
+        target: "https://uptime.com",
+        changeOrigin: true,
+        secure: false,
+        rewrite: (path) => path.replace(/^\/api/, "/api/v1"),
+      },
+    },
+    cors: false,
   },
 });
